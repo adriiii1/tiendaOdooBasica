@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <act_window id="tiendaodoo_pedidos_action"
+                    name="Pedidos"
+                    res_model="tiendaodoo.pedidos" />
+        <menuitem id="tiendaodoo_pedidos_menu"
+                  name="Pedidos"
+                  action="tiendaodoo_pedidos_action"
+                  parent="menu_clientes"
+                  sequence="11" />
+
+        <record id="tiendaodoo_pedidos_view_tree" model="ir.ui.view">
+            <field name="name">Lista de pedidos</field>
+            <field name="model">tiendaodoo.pedidos</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="cliente" />
+                    <field name="articulo" />
+                    <field name="total" />
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="tiendaodoo_pedidos_view_form" model="ir.ui.view">
+            <field name="name">Registro de pedidos</field>
+            <field name="model">tiendaodoo.pedidos</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="limpiar" type="object" string="Limpia" class="oe_highlight" />
+                        <button name="limpia_todo" type="object" string="Limpia todo" class="oe_highlight" />
+
+                    </header>
+                    <group>
+                        <field name="cliente" />
+                        <field name="articulo" />
+                        <field name="total" />
+
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="tiendaodoo_pedidos_view_search" model="ir.ui.view">
+            <field name="name">Busqueda de pedidos</field>
+            <field name="model">tiendaodoo.pedidos</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="cliente" />
+                    <field name="articulo" />
+                    <field name="total" />
+
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

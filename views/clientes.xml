@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <act_window id="tiendaodoo_clientes_action"
+                    name="Clientes"
+                    res_model="tiendaodoo.clientes" />
+        <menuitem name="Stock" id="menu_clientes" sequence="10" />
+        <menuitem id="tiendaodoo_clientes_menu"
+                  name="Clientes"
+                  action="tiendaodoo_clientes_action"
+                  parent="menu_clientes"
+                  sequence="10" />
+        <record id="tiendaodoo_clientes_view_tree" model="ir.ui.view">
+            <field name="name">Lista de clientes</field>
+            <field name="model">tiendaodoo.clientes</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombre" />
+                    <field name="apellidos" />
+                    <field name="edad" />
+                    <field name="telefono" />
+
+                </tree>
+            </field>
+        </record>
+        <record id="tiendaodoo_clientes_view_form" model="ir.ui.view">
+            <field name="name">Registro de consolas</field>
+            <field name="model">tiendaodoo.clientes</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="limpiar" type="object" string="Limpia" class="oe_highlight" />
+                        <button name="limpia_todo" type="object" string="Limpia todo" class="oe_highlight" />
+
+                    </header>
+                    <group>
+                    <field name="nombre" />
+                    <field name="apellidos" />
+                    <field name="edad" />
+                    <field name="telefono" />
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="tiendaodoo_clientes_view_search" model="ir.ui.view">
+            <field name="name">Busqueda de consolas</field>
+            <field name="model">tiendaodoo.clientes</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nombre" />
+                    <field name="apellidos" />
+                    <field name="edad" />
+                    <field name="telefono" />
+
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

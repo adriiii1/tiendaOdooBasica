@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <act_window id="tiendaodoo_articulos_action"
+                    name="Articulos"
+                    res_model="tiendaodoo.articulos" />
+        <menuitem id="tiendaodoo_articulos_menu"
+                  name="Articulos"
+                  action="tiendaodoo_articulos_action"
+                  parent="menu_clientes"
+                  sequence="11" />
+
+        <record id="tiendaodoo_articulos_view_tree" model="ir.ui.view">
+            <field name="name">Lista de articulos</field>
+            <field name="model">tiendaodoo.articulos</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="marca" />
+                    <field name="nombre" />
+                    <field name="descripcion" />
+                    <field name="precio" />
+                    <field name="proveedor" />
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="tiendaodoo_articulos_view_form" model="ir.ui.view">
+            <field name="name">Registro de articulos</field>
+            <field name="model">tiendaodoo.articulos</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="limpiar" type="object" string="Limpia" class="oe_highlight" />
+                        <button name="limpia_todo" type="object" string="Limpia todo" class="oe_highlight" />
+
+                    </header>
+                    <group>
+                        <field name="marca" />
+                        <field name="nombre" />
+                        <field name="descripcion" />
+                        <field name="precio" />
+                        <field name="proveedor" />
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="tiendaodoo_articulos_view_search" model="ir.ui.view">
+            <field name="name">Busqueda de articulos</field>
+            <field name="model">tiendaodoo.articulos</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="marca" />
+                    <field name="nombre" />
+                    <field name="descripcion" />
+                    <field name="precio" />
+                    <field name="proveedor" />
+
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

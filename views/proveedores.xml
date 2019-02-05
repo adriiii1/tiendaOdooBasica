@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <act_window id="tiendaodoo_proveedores_action"
+                    name="Proveedores"
+                    res_model="tiendaodoo.proveedores" />
+        <menuitem id="tiendaodoo_proveedores_menu"
+                  name="Proveedores"
+                  action="tiendaodoo_proveedores_action"
+                  parent="menu_clientes"
+                  sequence="13" />
+
+        <record id="tiendaodoo_proveedores_view_tree" model="ir.ui.view">
+            <field name="name">Lista de proveedores</field>
+            <field name="model">tiendaodoo.proveedores</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="cif" />
+                    <field name="nombre" />
+                    <field name="telefono" />
+                    <field name="calle" />
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="tiendaodoo_proveedores_view_form" model="ir.ui.view">
+            <field name="name">Formulario de proveedores</field>
+            <field name="model">tiendaodoo.proveedores</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="limpiar" type="object" string="Limpia" class="oe_highlight" />
+                        <button name="limpia_todo" type="object" string="Limpia todo" class="oe_highlight" />
+
+                    </header>
+                    <group>
+                        <field name="cif" />
+                        <field name="nombre" />
+                        <field name="telefono" />
+                        <field name="calle" />
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="tiendaodoo_proveedores_view_search" model="ir.ui.view">
+            <field name="name">Busqueda de proveedores</field>
+            <field name="model">tiendaodoo.proveedores</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="cif" />
+                    <field name="nombre" />
+                    <field name="telefono" />
+                    <field name="calle" />
+
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
