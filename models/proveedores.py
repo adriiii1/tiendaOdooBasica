@@ -1,42 +1,20 @@
-from odoo import models,fields,api
+from odoo import models, fields, api, _
+
 
 class Proveedores(models.Model):
-    _name = 'tiendaodoo.proveedores'
-    cif = fields.Char('Cif', required=True)
+    _name = 'tienda.proveedores'
+    cif = fields.Char('CIF', required=True)
     nombre = fields.Char('Nombre', required=True)
+    direccion = fields.Char('Dirección', required=False)
+    poblacion = fields.Char('Población', required=False)
+    provincia = fields.Char('Provincia', required=False)
+    codPostal = fields.Integer('Cod Postal', required=False)
     telefono = fields.Integer('Telefono', required=True)
-    calle = fields.Char('Calle', required=True)
+    email = fields.Char('Email', required=True)
 
     def name_get(self):
-        res=[]
+        res = []
         for record in self:
-            name = record.nombre
+            name = record.cif + ' - ' + record.nombre
             res.append((record.id, name))
         return res
-
-
-
-class Articulos(models.Model):
-    _name = 'tiendaodoo.articulos'
-    marca = fields.Char('Marca', required=True)
-    nombre = fields.Char('Nombre', required=True)
-    descripcion = fields.Char('Descripcion', required=True)
-    precio = fields.Integer('Precio', required=True)
-
-    def name_get(self):
-        res=[]
-        for record in self:
-            name = record.articulos
-            res.append((record.id, name))
-        return res
-
-    @api.one
-    def limpiar(self):
-        self.nombre = ""
-        return True
-
-    @api.multi
-    def limpia_todo(self):
-        done_recs = self.search([('nombre', '=', 'fender')])
-        done_recs.write({'nombre': 'Fender'})
-        return True

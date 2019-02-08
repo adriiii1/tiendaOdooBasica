@@ -1,1 +1,0 @@
-Aplicación tienda para SGE

@@ -1,38 +1,17 @@
-from odoo import models,fields,api
+from odoo import models, fields, api, _
+
 
 class Articulos(models.Model):
-    _name = 'tiendaodoo.articulos'
-    marca = fields.Char('Marca', required=True)
-    nombre = fields.Char('Nombre', required=True)
+    _name = 'tienda.articulos'
+    cod = fields.Char('COD', required=True)
     descripcion = fields.Char('Descripcion', required=True)
-    precio = fields.Integer('Precio', required=True)
-    proveedor = fields.Many2one('tiendaodoo.proveedores', 'Proveedores')
+    proveedor = fields.Many2one('tienda.proveedores', 'Proveedores')
+    precio = fields.Float('Precio', required=True)
+    cantidad = fields.Integer('Cantidad', required=True)
 
     def name_get(self):
-        res=[]
+        res = []
         for record in self:
-            name = record.nombre
+            name = record.cod + ' - ' + record.descripcion
             res.append((record.id, name))
         return res
-
-    class Pedidos(models.Model):
-        _name = 'tiendaodoo.pedidos'
-        total = fields.Integer('Total', required=True)
-
-        def name_get(self):
-            res = []
-            for record in self:
-                name = record.pedidos
-                res.append((record.id, name))
-            return res
-
-    @api.one
-    def limpiar(self):
-        self.nombre = ""
-        return True
-
-    @api.multi
-    def limpia_todo(self):
-        done_recs = self.search([('nombre', '=', 'fender')])
-        done_recs.write({'nombre': 'Fender'})
-        return True

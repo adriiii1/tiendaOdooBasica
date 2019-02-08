@@ -1,1 +1,1 @@
-from . import clientes, proveedores, articulos, pedidos
+from . import proveedores, clientes, articulos, ventas
